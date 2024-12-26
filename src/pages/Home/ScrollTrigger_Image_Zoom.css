@@ -1,0 +1,217 @@
+.my-container {
+  height: 300vh;
+  position: relative;
+}
+
+.my-sticky {
+  position: sticky;
+  overflow: hidden;
+  top: 0;
+  height: 100vh;
+}
+
+.my-el {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageContainer {
+  position: relative;
+  width: 20vw;
+  height: 25vh;
+}
+
+.imageContainer img {
+  object-fit: cover;
+    border-radius: 10px;
+}
+
+.my-el:nth-of-type(2) .imageContainer {
+  top: -35vh;
+  left: 5vw;
+  width: 20vw;
+  /* height: 30vh; */
+}
+
+.my-el:nth-of-type(3) .imageContainer {
+  top: -10vh;
+  left: -25vw;
+  width: 20vw;
+  /* height: 45vh; */
+}
+
+.my-el:nth-of-type(4) .imageContainer {
+  left: 27.5vw;
+  width: 25vw;
+  /* height: 25vh; */
+}
+
+.my-el:nth-of-type(5) .imageContainer {
+  top: 27.5vh;
+  left: 3vw;
+  width: 20vw;
+  /* height: 25vh; */
+}
+
+.my-el:nth-of-type(6) .imageContainer {
+  top: 28.5vh;
+  left: -22.5vw;
+  width: 25vw;
+  /* height: 25vh; */
+}
+
+.my-el:nth-of-type(7) .imageContainer {
+  top: 37.5vh;
+  left: 25vw;
+  width: 15vw;
+  /* height: 15vh; */
+}
+
+@media (max-width: 1000px) {
+    .my-el:nth-of-type(2) .imageContainer {
+      top: -35vh;
+      left: 5vw;
+      width: 30vw;
+    }
+  
+    .my-el:nth-of-type(3) .imageContainer {
+      top: -10vh;
+      left: -25vw;
+      width: 25vw;
+      /* height: 45vh; */
+    }
+  
+    .my-el:nth-of-type(4) .imageContainer {
+      top: -8.5vw;
+      left: 27.5vw;
+      width: 30vw;
+      /* height: 25vh; */
+    }
+  
+    .my-el:nth-of-type(5) .imageContainer {
+      top: 20.5vh;
+      left: 3vw;
+      width: 22vw;
+      /* height: 25vh; */
+    }
+  
+    .my-el:nth-of-type(6) .imageContainer {
+      display: none;
+      /* height: 25vh; */
+    }
+  
+    .my-el:nth-of-type(7) .imageContainer {
+      display: none;
+      /* height: 15vh; */
+    }
+}
+
+@media (max-width: 800px) {
+  .my-el:nth-of-type(1) .imageContainer {
+      top: 0vh;
+    }
+
+  .my-el:nth-of-type(2) .imageContainer {
+    top: -35vh;
+    left: 5vw;
+    width: 30vw;
+  }
+
+  .my-el:nth-of-type(3) .imageContainer {
+    top: -20vh;
+    left: -25vw;
+    width: 25vw;
+    /* height: 45vh; */
+  }
+
+  .my-el:nth-of-type(4) .imageContainer {
+    top: -18.5vw;
+    left: 27.5vw;
+    width: 30vw;
+    /* height: 25vh; */
+  }
+
+  .my-el:nth-of-type(5) .imageContainer {
+    top: 5.5vh;
+    left: -13vw;
+    width: 32vw;
+    /* height: 25vh; */
+  }
+}
+
+@media (max-width: 600px) {
+  .my-el:nth-of-type(1) .imageContainer {
+    top: 0vh;
+  }
+
+  .my-el:nth-of-type(2) .imageContainer {
+    top: -25vh;
+    left: -15vw;
+    width: 38vw;
+  }
+
+  .my-el:nth-of-type(3) .imageContainer {
+    top: 15vh;
+    left: 20vw;
+    width: 45vw;
+    /* height: 45vh; */
+  }
+
+  .my-el:nth-of-type(4) .imageContainer {
+        display: none;
+    /* height: 25vh; */
+  }
+
+  .my-el:nth-of-type(5) .imageContainer {
+    display: none;
+    /* height: 25vh; */
+  }
+}
+
+@media (max-width: 400px) {
+  .my-el:nth-of-type(2) .imageContainer {
+      top: -35vh;
+      left: -0vw;      
+      width: 70vw;
+    }
+  
+    .my-el:nth-of-type(3) .imageContainer {
+      top: -15vh;
+      left: -0vw;     
+      width: 50vw;
+    }
+  
+    /* .my-el:nth-of-type(4) .imageContainer {
+      left: 27.5vw;
+      width: 45vw;
+    } */
+  
+    .my-el:nth-of-type(5) .imageContainer {
+      display: block;
+      top: 15vh;
+      left: -0vw;     
+      width: 12vw;
+      /* height: 25vh; */
+    }
+  
+    .my-el:nth-of-type(6) .imageContainer {
+      display: block;
+      top: 10vh;
+      left: -0vw;
+      width: 13vw;
+      /* height: 25vh; */
+    }
+  
+    .my-el:nth-of-type(7) .imageContainer {
+      display: block;
+      top: 30vh;
+      left: -0vw;      
+      width: 65vw;
+      /* height: 15vh; */
+    }
+}

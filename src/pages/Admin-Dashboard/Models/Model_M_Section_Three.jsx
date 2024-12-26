@@ -1,0 +1,1311 @@
+import {
+  Button,
+  Modal,
+  Label,
+  TextInput,
+  Textarea,
+  useState,
+  useEffect,
+  useRef,axios,CircularProgressbar
+} from "@/utils/Imports";
+import { Alert } from "flowbite-react";
+import "react-circular-progressbar/dist/styles.css";
+
+export default function Model_M_Section_Three({
+  domain,
+  data,
+  setData,
+  setTranslation_M_Section_Three_EN,
+  setTranslation_M_Section_Three_AR,
+  setTranslation_M_Section_Three_DE,
+}) {
+  const [openModal, setOpenModal] = useState(false);
+
+  //
+  const [imagePercent, setImagePercent] = useState();
+  const fileRef = useRef(null);
+  const [uploadingImg, setUploadingImg] = useState(false);
+    const [imageUploadError, setImageUploadError] = useState(false);
+//
+
+  // title
+  const [translateTitle, setTranslateTitle] = useState("");
+  const [translateTitleInEN, setTranslateTitleInEN] = useState("");
+  const [translateTitleInAR, setTranslateTitleInAR] = useState("");
+  const [translateTitleInDE, setTranslateTitleInDE] = useState("");
+
+  // Para
+  const [translatePara, setTranslatePara] = useState("");
+  const [translateParaInEN, setTranslateParaInEN] = useState("");
+  const [translateParaInAR, setTranslateParaInAR] = useState("");
+  const [translateParaInDE, setTranslateParaInDE] = useState("");
+
+  // services
+  // service 1
+  // title 1
+  const [translateTitle_One, setTranslateTitle_One] = useState("");
+  const [translateTitle_OneInEN, setTranslateTitle_OneInEN] = useState("");
+  const [translateTitle_OneInAR, setTranslateTitle_OneInAR] = useState("");
+  const [translateTitle_OneInDE, setTranslateTitle_OneInDE] = useState("");
+  // para 1
+  const [translatePara_One, setTranslatePara_One] = useState("");
+  const [translatePara_OneInEN, setTranslatePara_OneInEN] = useState("");
+  const [translatePara_OneInAR, setTranslatePara_OneInAR] = useState("");
+  const [translatePara_OneInDE, setTranslatePara_OneInDE] = useState("");
+  // service 2
+  // title 2
+  const [translateTitle_Two, setTranslateTitle_Two] = useState("");
+  const [translateTitle_TwoInEN, setTranslateTitle_TwoInEN] = useState("");
+  const [translateTitle_TwoInAR, setTranslateTitle_TwoInAR] = useState("");
+  const [translateTitle_TwoInDE, setTranslateTitle_TwoInDE] = useState("");
+  // para 2
+  const [translatePara_Two, setTranslatePara_Two] = useState("");
+  const [translatePara_TwoInEN, setTranslatePara_TwoInEN] = useState("");
+  const [translatePara_TwoInAR, setTranslatePara_TwoInAR] = useState("");
+  const [translatePara_TwoInDE, setTranslatePara_TwoInDE] = useState("");
+  // service 3
+  // title 3
+  const [translateTitle_Three, setTranslateTitle_Three] = useState("");
+  const [translateTitle_ThreeInEN, setTranslateTitle_ThreeInEN] = useState("");
+  const [translateTitle_ThreeInAR, setTranslateTitle_ThreeInAR] = useState("");
+  const [translateTitle_ThreeInDE, setTranslateTitle_ThreeInDE] = useState("");
+  // para 3
+  const [translatePara_Three, setTranslatePara_Three] = useState("");
+  const [translatePara_ThreeInEN, setTranslatePara_ThreeInEN] = useState("");
+  const [translatePara_ThreeInAR, setTranslatePara_ThreeInAR] = useState("");
+  const [translatePara_ThreeInDE, setTranslatePara_ThreeInDE] = useState("");
+  // service 4
+  // title 4
+  const [translateTitle_Four, setTranslateTitle_Four] = useState("");
+  const [translateTitle_FourInEN, setTranslateTitle_FourInEN] = useState("");
+  const [translateTitle_FourInAR, setTranslateTitle_FourInAR] = useState("");
+  const [translateTitle_FourInDE, setTranslateTitle_FourInDE] = useState("");
+  // para 4
+  const [translatePara_Four, setTranslatePara_Four] = useState("");
+  const [translatePara_FourInEN, setTranslatePara_FourInEN] = useState("");
+  const [translatePara_FourInAR, setTranslatePara_FourInAR] = useState("");
+  const [translatePara_FourInDE, setTranslatePara_FourInDE] = useState("");
+
+  // dir
+  const [dir, setDir] = useState(1);
+
+  const sanitizeTranslations = (translations) => {
+    const sanitized = {};
+    for (const key in translations) {
+      if (key.trim() !== "") {
+        sanitized[key] = translations[key];
+      }
+    }
+    return sanitized;
+  };
+
+  useEffect(() => {
+    const sanitizedTranslationEN = sanitizeTranslations({
+      [data.M_Section_Three.title]: translateTitleInEN,
+      [data.M_Section_Three.para]: translateParaInEN,
+      [data.M_Section_Three.features[0].title]: translateTitle_OneInEN,
+      [data.M_Section_Three.features[0].para]: translatePara_OneInEN,
+      [data.M_Section_Three.features[1].title]: translateTitle_TwoInEN,
+      [data.M_Section_Three.features[1].para]: translatePara_TwoInEN,
+      [data.M_Section_Three.features[2].title]: translateTitle_ThreeInEN,
+      [data.M_Section_Three.features[2].para]: translatePara_ThreeInEN,
+      [data.M_Section_Three.features[3].title]: translateTitle_FourInEN,
+      [data.M_Section_Three.features[3].para]: translatePara_FourInEN,
+    });
+
+    const sanitizedTranslationAR = sanitizeTranslations({
+      [data.M_Section_Three.title]: translateTitleInAR,
+      [data.M_Section_Three.para]: translateParaInAR,
+      [data.M_Section_Three.features[0].title]: translateTitle_OneInAR,
+      [data.M_Section_Three.features[0].para]: translatePara_OneInAR,
+      [data.M_Section_Three.features[1].title]: translateTitle_TwoInAR,
+      [data.M_Section_Three.features[1].para]: translatePara_TwoInAR,
+      [data.M_Section_Three.features[2].title]: translateTitle_ThreeInAR,
+      [data.M_Section_Three.features[2].para]: translatePara_ThreeInAR,
+      [data.M_Section_Three.features[3].title]: translateTitle_FourInAR,
+      [data.M_Section_Three.features[3].para]: translatePara_FourInAR,
+    });
+
+    const sanitizedTranslationDE = sanitizeTranslations({
+      [data.M_Section_Three.title]: translateTitleInDE,
+      [data.M_Section_Three.para]: translateParaInDE,
+      [data.M_Section_Three.features[0].title]: translateTitle_OneInDE,
+      [data.M_Section_Three.features[0].para]: translatePara_OneInDE,
+      [data.M_Section_Three.features[1].title]: translateTitle_TwoInDE,
+      [data.M_Section_Three.features[1].para]: translatePara_TwoInDE,
+      [data.M_Section_Three.features[2].title]: translateTitle_ThreeInDE,
+      [data.M_Section_Three.features[2].para]: translatePara_ThreeInDE,
+      [data.M_Section_Three.features[3].title]: translateTitle_FourInDE,
+      [data.M_Section_Three.features[3].para]: translatePara_FourInDE,
+    });
+
+    setTranslation_M_Section_Three_EN(sanitizedTranslationEN);
+    setTranslation_M_Section_Three_AR(sanitizedTranslationAR);
+    setTranslation_M_Section_Three_DE(sanitizedTranslationDE);
+
+    // console.log("Sanitized Translations:", {
+    //   en: sanitizedTranslationEN,
+    //   ar: sanitizedTranslationAR,
+    //   de: sanitizedTranslationDE,
+    // });
+  }, [data.M_Section_Three]);
+
+  // upload functions
+  const handleUploadImage = async (e) => {
+    e.preventDefault();
+    const images = e.target.files;
+    const formData = new FormData();
+    for (const file of images) {
+      formData.append("images", file);
+    }
+
+    setImageUploadError(false);
+    setUploadingImg(true);
+
+    try {
+      const res = await axios.post(`${domain}/api/images/upload`, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+        onUploadProgress: (progressEvent) => {
+          const { loaded, total } = progressEvent;
+          const percent = Math.round((loaded * 100) / total);
+          setImagePercent(percent);
+        },
+      });
+      setUploadingImg(false);
+      // Update state with uploaded image URLs
+      const uploadedUrls = res.data.files;
+      if (uploadedUrls.length === 1) {
+        setData((prevData) => ({
+          ...prevData,
+          M_Section_Three: {
+            ...prevData.M_Section_Three,
+            img: uploadedUrls[0],
+          },
+        }));
+      }
+      console.log(res.data.files);
+    } catch (err) {
+      if (err) {
+        setUploadingImg(false);
+        setImageUploadError(true);
+      }
+    }
+          
+  };
+
+  return (
+    <>
+      <Button onClick={() => setOpenModal(true)} className="w-fit">
+        Section Three
+      </Button>
+      <Modal show={openModal} onClose={() => setOpenModal(false)}>
+        <Modal.Header className="py-2 items-center">
+          Terms of Service
+        </Modal.Header>
+        <Modal.Body className="px-3">
+          <img
+            src="/images/M_Section_Three.png"
+            alt="M_Section_Three one img"
+          />
+          <hr />
+          <div className="space-y-6 mt-5">
+            {/* title */}
+            <div className="flex lg:flex-row flex-col gap-5 flex-wrap items-center">
+              <div className="w-full lg:w-72">
+                <div className="mb-2 block w-full">
+                  <Label
+                    htmlFor="title-of-M_Section_Three"
+                    value="title-of-M_Section_Three"
+                    style={{
+                      fontSize: "16px",
+                    }}
+                  />
+                </div>
+                <TextInput
+                  id="title-of-M_Section_Three"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translateTitle}
+                  onChange={(e) => setTranslateTitle(e.target.value)}
+                  type="text"
+                  sizing="sm"
+                  placeholder="please-type-like-this"
+                />
+              </div>
+              {/* in en */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="myTextarea-EN"
+                  value="Enter your sentence in English:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="myTextarea-EN"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translateTitleInEN}
+                  onChange={(e) => setTranslateTitleInEN(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+              {/* in ar */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="myTextarea-AR"
+                  value="Enter your sentence in Arabic:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="myTextarea-EN"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translateTitleInAR}
+                  onChange={(e) => setTranslateTitleInAR(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+              {/* in de */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="myTextarea-DE"
+                  value="Enter your sentence in Dautch:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="myTextarea-DE"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translateTitleInDE}
+                  onChange={(e) => setTranslateTitleInDE(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+            </div>
+            <hr />
+            {/* Para */}
+            <div className="flex lg:flex-row flex-col gap-5 flex-wrap items-center">
+              <div className="w-full lg:w-72">
+                <div className="mb-2 block w-full">
+                  <Label
+                    htmlFor="Para-of-M_Section_Three"
+                    value="Para-of-M_Section_Three"
+                    style={{
+                      fontSize: "16px",
+                    }}
+                  />
+                </div>
+                <TextInput
+                  id="Para-of-M_Section_Three"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translatePara}
+                  onChange={(e) => setTranslatePara(e.target.value)}
+                  type="text"
+                  sizing="sm"
+                  placeholder="please-type-like-this"
+                />
+              </div>
+              {/* in en */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="para-myTextarea-EN"
+                  value="Enter your sentence in English:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="para-myTextarea-EN"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translateParaInEN}
+                  onChange={(e) => setTranslateParaInEN(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+              {/* in ar */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="para-myTextarea-AR"
+                  value="Enter your sentence in Arabic:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="para-myTextarea-EN"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translateParaInAR}
+                  onChange={(e) => setTranslateParaInAR(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+              {/* in de */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="para-myTextarea-DE"
+                  value="Enter your sentence in Dautch:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="para-myTextarea-DE"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translateParaInDE}
+                  onChange={(e) => setTranslateParaInDE(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+            </div>
+            <hr />
+            {/* the five features 1*/}
+            {/* 1111111111111111111111111111111111111111111111111111111111111111111 */}
+            {/* features title 1 */}
+            <div className="flex lg:flex-row flex-col gap-5 flex-wrap items-center">
+              <div className="w-full lg:w-72">
+                <div className="mb-2 block w-full">
+                  <Label
+                    htmlFor="title-of-m-M_Section_Three-features-title-one"
+                    value="title-of-features-title-one"
+                    style={{
+                      fontSize: "16px",
+                    }}
+                  />
+                </div>
+                <TextInput
+                  id="title-of-m-M_Section_Three-features-title-one"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translateTitle_One}
+                  onChange={(e) => setTranslateTitle_One(e.target.value)}
+                  type="text"
+                  sizing="sm"
+                  placeholder="please-type-like-this"
+                />
+              </div>
+              {/* in en */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="title-of-m-M_Section_Three-features-title-one-EN"
+                  value="Enter your sentence in English:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="title-of-m-M_Section_Three-features-title-one-EN"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translateTitle_OneInEN}
+                  onChange={(e) => setTranslateTitle_OneInEN(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+              {/* in ar */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="title-of-m-M_Section_Three-features-title-one-AR"
+                  value="Enter your sentence in Arabic:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="title-of-m-M_Section_Three-features-title-one-AR"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translateTitle_OneInAR}
+                  onChange={(e) => setTranslateTitle_OneInAR(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+              {/* in de */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="title-of-m-M_Section_Three-features-title-one-EN"
+                  value="Enter your sentence in Dautch:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="title-of-m-M_Section_Three-features-title-one-EN"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translateTitle_OneInDE}
+                  onChange={(e) => setTranslateTitle_OneInDE(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+            </div>
+            <br />
+            {/* service para 1 */}
+            <div className="flex lg:flex-row flex-col gap-5 flex-wrap items-center">
+              <div className="w-full lg:w-72">
+                <div className="mb-2 block w-full">
+                  <Label
+                    htmlFor="title-of-m-M_Section_Three-features-para-one"
+                    value="title-of-features-para-one"
+                    style={{
+                      fontSize: "16px",
+                    }}
+                  />
+                </div>
+                <TextInput
+                  id="title-of-m-M_Section_Three-features-para-one"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translatePara_One}
+                  onChange={(e) => setTranslatePara_One(e.target.value)}
+                  type="text"
+                  sizing="sm"
+                  placeholder="please-type-like-this"
+                />
+              </div>
+              {/* in en */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="title-of-m-M_Section_Three-features-para-one-EN"
+                  value="Enter your sentence in English:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="title-of-m-M_Section_Three-features-para-one-EN"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translatePara_OneInEN}
+                  onChange={(e) => setTranslatePara_OneInEN(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+              {/* in ar */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="title-of-m-M_Section_Three-features-para-one-AR"
+                  value="Enter your sentence in Arabic:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="title-of-m-M_Section_Three-features-para-one-AR"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translatePara_OneInAR}
+                  onChange={(e) => setTranslatePara_OneInAR(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+              {/* in de */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="title-of-m-M_Section_Three-features-para-one-DE"
+                  value="Enter your sentence in Dautch:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="title-of-m-M_Section_Three-features-para-one-DE"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translatePara_OneInDE}
+                  onChange={(e) => setTranslatePara_OneInDE(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+            </div>
+            {/* 1111111111111111111111111111111111111111111111111111111111111111111 */}
+            <hr />
+            {/* 2222222222222222222222222222222222222222222222222222222222222222222 */}
+            {/* features title 2 */}
+            <div className="flex lg:flex-row flex-col gap-5 flex-wrap items-center">
+              <div className="w-full lg:w-72">
+                <div className="mb-2 block w-full">
+                  <Label
+                    htmlFor="title-of-m-M_Section_Three-features-title-two"
+                    value="title-of-features-title-two"
+                    style={{
+                      fontSize: "16px",
+                    }}
+                  />
+                </div>
+                <TextInput
+                  id="title-of-m-M_Section_Three-features-title-two"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translateTitle_Two}
+                  onChange={(e) => setTranslateTitle_Two(e.target.value)}
+                  type="text"
+                  sizing="sm"
+                  placeholder="please-type-like-this"
+                />
+              </div>
+              {/* in en */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="title-of-m-M_Section_Three-features-title-two-EN"
+                  value="Enter your sentence in English:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="title-of-m-M_Section_Three-features-title-two-EN"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translateTitle_TwoInEN}
+                  onChange={(e) => setTranslateTitle_TwoInEN(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+              {/* in ar */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="title-of-m-M_Section_Three-features-title-two-AR"
+                  value="Enter your sentence in Arabic:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="title-of-m-M_Section_Three-features-title-two-AR"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translateTitle_TwoInAR}
+                  onChange={(e) => setTranslateTitle_TwoInAR(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+              {/* in de */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="title-of-m-M_Section_Three-features-title-two-EN"
+                  value="Enter your sentence in Dautch:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="title-of-m-M_Section_Three-features-title-two-EN"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translateTitle_TwoInDE}
+                  onChange={(e) => setTranslateTitle_TwoInDE(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+            </div>
+            <br />
+            {/* service para 2 */}
+            <div className="flex lg:flex-row flex-col gap-5 flex-wrap items-center">
+              <div className="w-full lg:w-72">
+                <div className="mb-2 block w-full">
+                  <Label
+                    htmlFor="title-of-m-M_Section_Three-features-para-two"
+                    value="title-of-features-para-two"
+                    style={{
+                      fontSize: "16px",
+                    }}
+                  />
+                </div>
+                <TextInput
+                  id="title-of-m-M_Section_Three-features-para-two"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translatePara_Two}
+                  onChange={(e) => setTranslatePara_Two(e.target.value)}
+                  type="text"
+                  sizing="sm"
+                  placeholder="please-type-like-this"
+                />
+              </div>
+              {/* in en */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="title-of-m-M_Section_Three-features-para-two-EN"
+                  value="Enter your sentence in English:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="title-of-m-M_Section_Three-features-para-two-EN"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translatePara_TwoInEN}
+                  onChange={(e) => setTranslatePara_TwoInEN(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+              {/* in ar */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="title-of-m-M_Section_Three-features-para-two-AR"
+                  value="Enter your sentence in Arabic:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="title-of-m-M_Section_Three-features-para-two-AR"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translatePara_TwoInAR}
+                  onChange={(e) => setTranslatePara_TwoInAR(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+              {/* in de */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="title-of-m-M_Section_Three-features-para-two-DE"
+                  value="Enter your sentence in Dautch:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="title-of-m-M_Section_Three-features-para-two-DE"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translatePara_TwoInDE}
+                  onChange={(e) => setTranslatePara_TwoInDE(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+            </div>
+            {/* 2222222222222222222222222222222222222222222222222222222222222222222 */}
+            <hr />
+            {/* 3333333333333333333333333333333333333333333333333333333333333333333 */}
+            {/* features title 3 */}
+            <div className="flex lg:flex-row flex-col gap-5 flex-wrap items-center">
+              <div className="w-full lg:w-72">
+                <div className="mb-2 block w-full">
+                  <Label
+                    htmlFor="title-of-m-M_Section_Three-features-title-three"
+                    value="title-of-features-title-three"
+                    style={{
+                      fontSize: "16px",
+                    }}
+                  />
+                </div>
+                <TextInput
+                  id="title-of-m-M_Section_Three-features-title-three"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translateTitle_Three}
+                  onChange={(e) => setTranslateTitle_Three(e.target.value)}
+                  type="text"
+                  sizing="sm"
+                  placeholder="please-type-like-this"
+                />
+              </div>
+              {/* in en */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="title-of-m-M_Section_Three-features-title-three-EN"
+                  value="Enter your sentence in English:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="title-of-m-M_Section_Three-features-title-three-EN"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translateTitle_ThreeInEN}
+                  onChange={(e) => setTranslateTitle_ThreeInEN(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+              {/* in ar */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="title-of-m-M_Section_Three-features-title-three-AR"
+                  value="Enter your sentence in Arabic:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="title-of-m-M_Section_Three-features-title-three-AR"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translateTitle_ThreeInAR}
+                  onChange={(e) => setTranslateTitle_ThreeInAR(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+              {/* in de */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="title-of-m-M_Section_Three-features-title-three-EN"
+                  value="Enter your sentence in Dautch:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="title-of-m-M_Section_Three-features-title-three-EN"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translateTitle_ThreeInDE}
+                  onChange={(e) => setTranslateTitle_ThreeInDE(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+            </div>
+            <br />
+            {/* service para 3 */}
+            <div className="flex lg:flex-row flex-col gap-5 flex-wrap items-center">
+              <div className="w-full lg:w-72">
+                <div className="mb-2 block w-full">
+                  <Label
+                    htmlFor="title-of-m-M_Section_Three-features-para-three"
+                    value="title-of-features-para-three"
+                    style={{
+                      fontSize: "16px",
+                    }}
+                  />
+                </div>
+                <TextInput
+                  id="title-of-m-M_Section_Three-features-para-three"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translatePara_Three}
+                  onChange={(e) => setTranslatePara_Three(e.target.value)}
+                  type="text"
+                  sizing="sm"
+                  placeholder="please-type-like-this"
+                />
+              </div>
+              {/* in en */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="title-of-m-M_Section_Three-features-para-three-EN"
+                  value="Enter your sentence in English:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="title-of-m-M_Section_Three-features-para-three-EN"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translatePara_ThreeInEN}
+                  onChange={(e) => setTranslatePara_ThreeInEN(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+              {/* in ar */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="title-of-m-M_Section_Three-features-para-three-AR"
+                  value="Enter your sentence in Arabic:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="title-of-m-M_Section_Three-features-para-three-AR"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translatePara_ThreeInAR}
+                  onChange={(e) => setTranslatePara_ThreeInAR(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+              {/* in de */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="title-of-m-M_Section_Three-features-para-three-DE"
+                  value="Enter your sentence in Dautch:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="title-of-m-M_Section_Three-features-para-three-DE"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translatePara_ThreeInDE}
+                  onChange={(e) => setTranslatePara_ThreeInDE(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+            </div>
+            {/* 3333333333333333333333333333333333333333333333333333333333333333333 */}
+            <hr />
+            {/* 4444444444444444444444444444444444444444444444444444444444444444444 */}
+            {/* features title 4 */}
+            <div className="flex lg:flex-row flex-col gap-5 flex-wrap items-center">
+              <div className="w-full lg:w-72">
+                <div className="mb-2 block w-full">
+                  <Label
+                    htmlFor="title-of-m-M_Section_Three-features-title-four"
+                    value="title-of-features-title-four"
+                    style={{
+                      fontSize: "16px",
+                    }}
+                  />
+                </div>
+                <TextInput
+                  id="title-of-m-M_Section_Three-features-title-four"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translateTitle_Four}
+                  onChange={(e) => setTranslateTitle_Four(e.target.value)}
+                  type="text"
+                  sizing="sm"
+                  placeholder="please-type-like-this"
+                />
+              </div>
+              {/* in en */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="title-of-m-M_Section_Three-features-title-four-EN"
+                  value="Enter your sentence in English:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="title-of-m-M_Section_Three-features-title-four-EN"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translateTitle_FourInEN}
+                  onChange={(e) => setTranslateTitle_FourInEN(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+              {/* in ar */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="title-of-m-M_Section_Three-features-title-four-AR"
+                  value="Enter your sentence in Arabic:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="title-of-m-M_Section_Three-features-title-four-AR"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translateTitle_FourInAR}
+                  onChange={(e) => setTranslateTitle_FourInAR(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+              {/* in de */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="title-of-m-M_Section_Three-features-title-four-EN"
+                  value="Enter your sentence in Dautch:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="title-of-m-M_Section_Three-features-title-four-EN"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translateTitle_FourInDE}
+                  onChange={(e) => setTranslateTitle_FourInDE(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+            </div>
+            <br />
+            {/* service para 4 */}
+            <div className="flex lg:flex-row flex-col gap-5 flex-wrap items-center">
+              <div className="w-full lg:w-72">
+                <div className="mb-2 block w-full">
+                  <Label
+                    htmlFor="title-of-m-M_Section_Three-features-para-four"
+                    value="title-of-features-para-four"
+                    style={{
+                      fontSize: "16px",
+                    }}
+                  />
+                </div>
+                <TextInput
+                  id="title-of-m-M_Section_Three-features-para-four"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translatePara_Four}
+                  onChange={(e) => setTranslatePara_Four(e.target.value)}
+                  type="text"
+                  sizing="sm"
+                  placeholder="please-type-like-this"
+                />
+              </div>
+              {/* in en */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="title-of-m-M_Section_Three-features-para-four-EN"
+                  value="Enter your sentence in English:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="title-of-m-M_Section_Three-features-para-four-EN"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translatePara_FourInEN}
+                  onChange={(e) => setTranslatePara_FourInEN(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+              {/* in ar */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="title-of-m-M_Section_Three-features-para-four-AR"
+                  value="Enter your sentence in Arabic:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="title-of-m-M_Section_Three-features-para-four-AR"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translatePara_FourInAR}
+                  onChange={(e) => setTranslatePara_FourInAR(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+              {/* in de */}
+              <div className="flex flex-col gap-2 lg:w-72 w-full">
+                <Label
+                  htmlFor="title-of-m-M_Section_Three-features-para-four-DE"
+                  value="Enter your sentence in Dautch:"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                />
+                <Textarea
+                  id="title-of-m-M_Section_Three-features-para-four-DE"
+                  style={{
+                    fontSize: "16px",
+                  }}
+                  value={translatePara_FourInDE}
+                  onChange={(e) => setTranslatePara_FourInDE(e.target.value)}
+                  sizing="sm"
+                  placeholder="please type your sentence..."
+                />
+              </div>
+            </div>
+            {/* 4444444444444444444444444444444444444444444444444444444444444444444 */}
+            <hr />
+
+            {/* image */}
+            <div className="flex w-fit items-center justify-center">
+              <form action="" className="hidden">
+                <input
+                  type="file"
+                  id="dropzone-file-M_Section_Three"
+                  hidden
+                  ref={fileRef}
+                  accept="image/*"
+                  onChange={handleUploadImage}
+                />
+              </form>
+
+              <Label
+                htmlFor="dropzone-file-M_Section_Three"
+                className="flex p-5 h-fit w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+              >
+                <div className="flex flex-col items-center justify-center">
+                  <svg
+                    className="mb-4 h-8 w-8 text-gray-500 dark:text-gray-400"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 16"
+                  >
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                    />
+                  </svg>
+                  <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                    <span className="font-semibold">Click to upload</span> the
+                    image in M Section Three
+                  </p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                    PNG
+                  </p>
+                </div>
+              </Label>
+              <div className="relative w-40 h-40 mx-auto p-5">
+                {uploadingImg && (
+                  <CircularProgressbar
+                    value={imagePercent}
+                    text={`${imagePercent}%`}
+                    strokeWidth={5}
+                    styles={{
+                      root: {
+                        position: "absolute",
+                        width: "100%",
+                        height: "100%",
+                        top: "0",
+                        left: "0",
+                        zIndex: "44",
+                      },
+                      path: {
+                        stroke: `rgba(62, 152, 199, ${imagePercent / 100})`,
+                      },
+                    }}
+                  />
+                )}
+                {data.M_Section_Three.img && (
+                  <img
+                    src={`${domain}/${data.M_Section_Three.img}`}
+                    alt="dropzone-file-M_Section_Three"
+                    className={`object-contain w-full h-full  mx-auto
+                            ${
+                              imagePercent > 0 && imagePercent < 100
+                                ? "opacity-50"
+                                : "opacity-100"
+                            }`}
+                  />
+                )}
+              </div>
+            </div>
+
+            <hr />
+            {/* toggle dir */}
+            <div>
+              <span className="block mb-2 text-[#7936EB] capitalize">
+                do you want to put the image on the right or left for English
+                Lang.?
+              </span>
+              <Button
+                gradientMonochrome="purple"
+                onClick={() => setDir(dir === 1 ? 3 : 1)}
+              >
+                {dir === 1 ? "Right" : "Left"}
+              </Button>
+            </div>
+            <div>
+              {imageUploadError && (
+                <Alert color="failure">{imageUploadError}</Alert>
+              )}
+            </div>
+          </div>
+        </Modal.Body>
+        <Modal.Footer className="py-2 flex justify-between">
+          <Button
+            onClick={() => {
+              setData((data) => ({
+                ...data,
+                M_Section_Three: {
+                  ...data.M_Section_Three,
+                  title: translateTitle,
+                  para: translatePara,
+                  features: [
+                    {
+                      title: translateTitle_One,
+                      para: translatePara_One,
+                    },
+                    {
+                      title: translateTitle_Two,
+                      para: translatePara_Two,
+                    },
+                    {
+                      title: translateTitle_Three,
+                      para: translatePara_Three,
+                    },
+                    {
+                      title: translateTitle_Four,
+                      para: translatePara_Four,
+                    },
+                  ],
+                  dir: dir,
+                },
+              }));
+              setOpenModal(false);
+            }}
+          >
+            Save
+          </Button>
+
+          <Button
+            color="gray"
+            onClick={() => {
+              setOpenModal(false);
+              setData((data) => ({
+                ...data,
+                M_Section_Three: {
+                  title: "",
+                  features: [
+                    { title: "", para: "" },
+                    { title: "", para: "" },
+                    { title: "", para: "" },
+                    { title: "", para: "" },
+                    { title: "", para: "" },
+                  ],
+                  img: "",
+                  dir: 1,
+                },
+              }));
+
+              setTranslateTitle("");
+              setTranslateTitleInEN("");
+              setTranslateTitleInAR("");
+              setTranslateTitleInDE("");
+
+              setTranslatePara("");
+              setTranslateParaInEN("");
+              setTranslateParaInAR("");
+              setTranslateParaInDE("");
+
+              setTranslateTitle_One("");
+              setTranslateTitle_OneInEN("");
+              setTranslateTitle_OneInAR("");
+              setTranslateTitle_OneInDE("");
+
+              setTranslatePara_One("");
+              setTranslatePara_OneInEN("");
+              setTranslatePara_OneInAR("");
+              setTranslatePara_OneInDE("");
+              // services
+              // service 1
+              // title 1
+              setTranslateTitle_One("");
+              setTranslateTitle_OneInEN("");
+              setTranslateTitle_OneInAR("");
+              setTranslateTitle_OneInDE("");
+              // para 1
+              setTranslatePara_One("");
+              setTranslatePara_OneInEN("");
+              setTranslatePara_OneInAR("");
+              setTranslatePara_OneInDE("");
+              // service 2
+              // title 2
+              setTranslateTitle_Two("");
+              setTranslateTitle_TwoInEN("");
+              setTranslateTitle_TwoInAR("");
+              setTranslateTitle_TwoInDE("");
+              // para 2
+              setTranslatePara_Two("");
+              setTranslatePara_TwoInEN("");
+              setTranslatePara_TwoInAR("");
+              setTranslatePara_TwoInDE("");
+              // service 3
+              // title 3
+              setTranslateTitle_Three("");
+              setTranslateTitle_ThreeInEN("");
+              setTranslateTitle_ThreeInAR("");
+              setTranslateTitle_ThreeInDE("");
+              // para 3
+              setTranslatePara_Three("");
+              setTranslatePara_ThreeInEN("");
+              setTranslatePara_ThreeInAR("");
+              setTranslatePara_ThreeInDE("");
+              // service 4
+              // title 4
+              setTranslateTitle_Four("");
+              setTranslateTitle_FourInEN("");
+              setTranslateTitle_FourInAR("");
+              setTranslateTitle_FourInDE("");
+              // para 4
+              setTranslatePara_Four("");
+              setTranslatePara_FourInEN("");
+              setTranslatePara_FourInAR("");
+              setTranslatePara_FourInDE("");
+
+              setDir(1);
+            }}
+          >
+            clear and cancel
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
+}

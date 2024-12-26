@@ -1,0 +1,95 @@
+.form_wrapper {
+  border-radius: 2rem;
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  overflow: hidden;
+  padding: 1.75rem 1rem;
+  position: relative;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255/var(--tw-text-opacity))
+}
+
+@media (min-width:992px) {
+  .form_wrapper {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 2.75rem
+  }
+}
+
+.form_wrapper:before {
+  background-image: url(/public/images/send_a_request.jpg);
+  background-size: cover;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%
+}
+
+.form_wrapper.en:before {
+  --tw-scale-x: -1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+}
+
+.form_wrapper input,
+.form_wrapper textarea {
+  /* border-color: rgb(255 255 255/var(--tw-border-opacity)); */
+  border-radius: 1rem;
+  border-width: 1px;
+  width: 100%;
+  --tw-border-opacity: .1;
+  background-color: transparent;
+  /* background-color: rgb(24 74 173/var(--tw-bg-opacity)); */
+  /* --tw-bg-opacity: .1; */
+  padding: 1rem 1.25rem;
+  /* --tw-text-opacity: 1; */
+  /* color: rgb(255 255 255/var(--tw-text-opacity)); */
+  --tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
+  /* --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color); */
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  font-size: 16px;
+}
+
+.form_wrapper input[type='email'] {
+  padding-inline-start: 40px;
+}
+
+.form_wrapper input::placeholder,
+.form_wrapper textarea::placeholder {
+  color: rgba(240, 248, 255, 0.6);
+}
+
+.form_wrapper input:focus,
+.form_wrapper textarea:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255/var(--tw-border-opacity));
+  outline: 2px solid transparent;
+  outline-offset: 2px
+}
+
+.form_wrapper input.error,
+.form_wrapper textarea.error {
+  --tw-border-opacity: 1;
+  border-color: rgb(220 38 38/var(--tw-border-opacity))
+}
+
+.PhoneInput {
+  gap: 8px;
+}
+.PhoneInput .PhoneInputCountry {
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 4px;
+  align-self: auto;
+}
+.PhoneInput .PhoneInputCountrySelectArrow {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.PhoneInput .PhoneInputCountrySelect {
+  color: black;
+}

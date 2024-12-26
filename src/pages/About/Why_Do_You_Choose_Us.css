@@ -1,0 +1,55 @@
+.why_us .container {
+  position: relative;
+  z-index: 10
+}
+
+/* @media (min-width:992px) {
+  .why_us .why_us_content .why_us_card:first-child {
+    align-self: end;
+    margin-right: auto;
+  }
+
+  .why_us .why_us_content .why_us_card:nth-child(2) {
+    align-self: center;
+    transform: translate(-30px)
+  }
+
+  .why_us .why_us_content .why_us_card:last-child {
+    align-self: start;
+    transform: translate(-60px)
+  }
+} */
+
+.why_us .swiper.swiper_top_navs {
+  overflow-y: visible !important
+}
+
+.why_us .swiper.swiper_top_navs .swiper-button-next,
+.why_us .swiper.swiper_top_navs .swiper-button-prev {
+  align-items: center;
+  border-radius: 9999px;
+  border-width: 1px;
+  display: flex;
+  height: 2.25rem;
+  justify-content: center;
+  position: absolute;
+  top: -2rem;
+  width: 2.25rem;
+  --tw-border-opacity: 1;
+  border-color: rgb(245 245 252/var(--tw-border-opacity));
+  left: unset !important;
+  right: unset !important
+}
+
+.why_us .swiper.swiper_top_navs .swiper-button-next:after,
+.why_us .swiper.swiper_top_navs .swiper-button-prev:after {
+  font-size: 14px !important
+}
+
+.why_us .swiper.swiper_top_navs .swiper-button-next {
+  inset-inline-end: 10px !important
+}
+
+.why_us .swiper.swiper_top_navs .swiper-button-prev {
+  inset-inline-end: 50px !important
+}

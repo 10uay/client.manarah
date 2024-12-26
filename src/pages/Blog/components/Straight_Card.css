@@ -1,0 +1,7 @@
+.blog-card-row > div {
+  display: flex;
+  flex-direction: row;
+}
+.blog-card-row>div:nth-child(2) {
+  z-index: 99 !important;
+}
